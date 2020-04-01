@@ -6,11 +6,13 @@ public class Tester {
         //creating new not linked nodes
         int userNum1 = 15;
         int userNum2 = 16;
+        int userNum3 = 22;
 
 
         //creating a queue with earlier created nodes
         queue.enqueue(userNum1);
         queue.enqueue(userNum2);
+        queue.enqueue(userNum3);
 
         //dequeue the queue
         System.out.println("The next in line is " + queue.dequeue());

@@ -1,8 +1,8 @@
 public class Queue {
     public static class NoElementToDequeException extends Exception {
 
-        public NoElementToDequeException(String s) {
-            super(s);
+        public NoElementToDequeException() {
+            super("There is no member to dequeue");
         }
     }
     private int amountOfMembers = 0;
@@ -14,20 +14,16 @@ public class Queue {
 
         if (amountOfMembers == 0) {
             firstMember = node;
-        } else if (amountOfMembers == 1) {
-            firstMember.setNext(node);
-            lastMember = node;
         } else {
             lastMember.setNext(node);
-            lastMember = node;
         }
-
+        lastMember = node;
         amountOfMembers++;
     }
 
     public int dequeue() throws NoElementToDequeException {
         if (firstMember == null) {
-            throw new NoElementToDequeException("There is no member to dequeue");
+            throw new NoElementToDequeException();
         }
         int value = firstMember.getValue();
         firstMember = firstMember.getNext();
